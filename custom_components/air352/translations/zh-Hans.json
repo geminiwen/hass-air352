@@ -29,19 +29,37 @@
   "entity": {
     "sensor": {
       "pm25": { "name": "PM2.5" },
+      "pm10": { "name": "PM10" },
       "tvoc": { "name": "TVOC" },
       "hcho": { "name": "甲醛" },
       "co2": { "name": "二氧化碳" },
       "currenttemperature": { "name": "温度" },
       "relativehumidity": { "name": "湿度" },
+      "airqualitygrade": { "name": "空气质量等级" },
+      "aal": { "name": "AAL 等级" },
+      "windvalue": { "name": "风量值" },
+      "totalpurairv": { "name": "累计净化空气量" },
+      "totalruntime": { "name": "累计运行时长" },
       "filterlifetimepercent_1": { "name": "滤芯1寿命" },
       "filterlifetimepercent_2": { "name": "滤芯2寿命" },
       "filterlifetimepercent_3": { "name": "滤芯3寿命" },
-      "finishedwatertds": { "name": "出水TDS" },
-      "rawwatertds": { "name": "进水TDS" },
+      "filterlifetimedays_1": { "name": "滤芯1剩余天数" },
+      "filterlifetimedays_2": { "name": "滤芯2剩余天数" },
+      "filterlifetimedays_3": { "name": "滤芯3剩余天数" },
+      "finishedwatertds": { "name": "出水 TDS" },
+      "rawwatertds": { "name": "进水 TDS" },
       "watertemperature": { "name": "水温" },
+      "rawwatertemperature": { "name": "原水温度" },
+      "purewatertemperature": { "name": "净水温度" },
       "totalpurewater": { "name": "累计净水量" },
-      "wifi_rssi": { "name": "WiFi信号" }
+      "totalwastewater": { "name": "累计废水量" },
+      "deviceusedtime": { "name": "累计使用时长" },
+      "workstate": { "name": "工作状态" },
+      "heatingstatus": { "name": "加热状态" },
+      "errorcode": { "name": "错误代码" },
+      "tds_alert": { "name": "TDS 报警" },
+      "waterdepletionstatus": { "name": "缺水状态" },
+      "wifi_rssi": { "name": "WiFi 信号" }
     },
     "fan": {
       "air_purifier": {
@@ -61,7 +79,18 @@
       "childlockswitch": { "name": "童锁" },
       "screenswitch": { "name": "屏幕" },
       "ionsswitch": { "name": "负离子" },
-      "smartmodeswitch": { "name": "智能模式" }
+      "smartmodeswitch": { "name": "智能模式" },
+      "uvledswitch": { "name": "紫外线灯" },
+      "pciswitch": { "name": "PCI 杀菌" },
+      "standbysensorswitch": { "name": "待机感应" },
+      "microwavesensor": { "name": "微波感应" },
+      "voicesettings": { "name": "语音提示" },
+      "illumination": { "name": "屏幕显示" },
+      "lowtempprotect": { "name": "低温保护" },
+      "holidaymode": { "name": "假日模式" },
+      "extremelyclean": { "name": "强力清洗" },
+      "flush_24h": { "name": "24 小时自动冲洗" },
+      "uvc": { "name": "UV 杀菌" }
     }
   }
 }

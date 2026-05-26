@@ -42,7 +42,63 @@ SWITCH_DESCRIPTIONS: list[Air352SwitchDescription] = [
     Air352SwitchDescription(
         key="SmartModeSwitch", name="Smart Mode",
         icon="mdi:brain",
-        category_keys=(DEVICE_TYPE_HUMIDIFIER,),
+        category_keys=(DEVICE_TYPE_AIR, DEVICE_TYPE_HUMIDIFIER),
+    ),
+    Air352SwitchDescription(
+        key="UVLEDSwitch", name="UV Light",
+        icon="mdi:lightbulb-on",
+        category_keys=(DEVICE_TYPE_AIR,),
+    ),
+    Air352SwitchDescription(
+        key="PCISwitch", name="PCI Sterilization",
+        icon="mdi:bacteria",
+        category_keys=(DEVICE_TYPE_AIR,),
+    ),
+    Air352SwitchDescription(
+        key="StandbySensorSwitch", name="Standby Sensor",
+        icon="mdi:motion-sensor",
+        category_keys=(DEVICE_TYPE_AIR,),
+    ),
+    Air352SwitchDescription(
+        key="MicrowaveSensor", name="Microwave Sensor",
+        icon="mdi:radar",
+        category_keys=(DEVICE_TYPE_AIR,),
+    ),
+    Air352SwitchDescription(
+        key="voicesettings", name="Voice Prompt",
+        icon="mdi:volume-high",
+        category_keys=(DEVICE_TYPE_AIR,),
+    ),
+    Air352SwitchDescription(
+        key="illumination", name="Screen Display",
+        icon="mdi:monitor",
+        category_keys=(DEVICE_TYPE_AIR,),
+    ),
+    # ── Water purifier switches ──
+    Air352SwitchDescription(
+        key="LowTempProtect", name="Low Temp Protect",
+        icon="mdi:snowflake",
+        category_keys=(DEVICE_TYPE_PURIFIER,),
+    ),
+    Air352SwitchDescription(
+        key="HolidayMode", name="Holiday Mode",
+        icon="mdi:airplane",
+        category_keys=(DEVICE_TYPE_PURIFIER,),
+    ),
+    Air352SwitchDescription(
+        key="ExtremelyClean", name="Extreme Clean",
+        icon="mdi:water-sync",
+        category_keys=(DEVICE_TYPE_PURIFIER,),
+    ),
+    Air352SwitchDescription(
+        key="flush_24h", name="24h Auto Flush",
+        icon="mdi:autorenew",
+        category_keys=(DEVICE_TYPE_PURIFIER,),
+    ),
+    Air352SwitchDescription(
+        key="UVC", name="UV Sterilization",
+        icon="mdi:bacteria",
+        category_keys=(DEVICE_TYPE_PURIFIER,),
     ),
 ]
 

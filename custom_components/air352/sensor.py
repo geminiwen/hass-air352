@@ -14,6 +14,8 @@ from homeassistant.const import (
     CONCENTRATION_PARTS_PER_MILLION,
     PERCENTAGE,
     UnitOfTemperature,
+    UnitOfTime,
+    UnitOfVolume,
 )
 from homeassistant.core import HomeAssistant
 from homeassistant.helpers.entity_platform import AddEntitiesCallback
@@ -118,6 +120,117 @@ SENSOR_DESCRIPTIONS: list[Air352SensorDescription] = [
         device_class=SensorDeviceClass.SIGNAL_STRENGTH, state_class=SensorStateClass.MEASUREMENT,
         entity_registry_enabled_default=False,
         category_keys=(DEVICE_TYPE_AIR, DEVICE_TYPE_PURIFIER, DEVICE_TYPE_HUMIDIFIER),
+    ),
+    # ── Air purifier extras ──
+    Air352SensorDescription(
+        key="PM10", name="PM10",
+        native_unit_of_measurement=CONCENTRATION_MICROGRAMS_PER_CUBIC_METER,
+        device_class=SensorDeviceClass.PM10, state_class=SensorStateClass.MEASUREMENT,
+        category_keys=(DEVICE_TYPE_AIR,),
+    ),
+    Air352SensorDescription(
+        key="airQualityGrade", name="Air Quality Grade",
+        state_class=SensorStateClass.MEASUREMENT,
+        icon="mdi:weather-windy",
+        category_keys=(DEVICE_TYPE_AIR,),
+    ),
+    Air352SensorDescription(
+        key="AAL", name="AAL Level",
+        state_class=SensorStateClass.MEASUREMENT,
+        entity_registry_enabled_default=False,
+        category_keys=(DEVICE_TYPE_AIR,),
+    ),
+    Air352SensorDescription(
+        key="TotalPurAirV", name="Total Purified Air",
+        native_unit_of_measurement="m³", state_class=SensorStateClass.TOTAL_INCREASING,
+        icon="mdi:air-filter",
+        category_keys=(DEVICE_TYPE_AIR,),
+    ),
+    Air352SensorDescription(
+        key="TotalRunTime", name="Total Run Time",
+        native_unit_of_measurement=UnitOfTime.HOURS, state_class=SensorStateClass.TOTAL_INCREASING,
+        icon="mdi:timer-outline",
+        category_keys=(DEVICE_TYPE_AIR,),
+    ),
+    Air352SensorDescription(
+        key="WindValue", name="Wind Value",
+        state_class=SensorStateClass.MEASUREMENT,
+        icon="mdi:fan",
+        entity_registry_enabled_default=False,
+        category_keys=(DEVICE_TYPE_AIR,),
+    ),
+    Air352SensorDescription(
+        key="FilterLifeTimeDays_1", name="Filter 1 Days",
+        native_unit_of_measurement=UnitOfTime.DAYS, state_class=SensorStateClass.MEASUREMENT,
+        icon="mdi:calendar-clock",
+        category_keys=(DEVICE_TYPE_AIR, DEVICE_TYPE_PURIFIER),
+    ),
+    Air352SensorDescription(
+        key="FilterLifeTimeDays_2", name="Filter 2 Days",
+        native_unit_of_measurement=UnitOfTime.DAYS, state_class=SensorStateClass.MEASUREMENT,
+        icon="mdi:calendar-clock",
+        category_keys=(DEVICE_TYPE_AIR, DEVICE_TYPE_PURIFIER),
+    ),
+    Air352SensorDescription(
+        key="FilterLifeTimeDays_3", name="Filter 3 Days",
+        native_unit_of_measurement=UnitOfTime.DAYS, state_class=SensorStateClass.MEASUREMENT,
+        icon="mdi:calendar-clock",
+        category_keys=(DEVICE_TYPE_AIR,),
+    ),
+    # ── Water purifier extras ──
+    Air352SensorDescription(
+        key="TotalWasteWater", name="Total Waste Water",
+        native_unit_of_measurement="mL", state_class=SensorStateClass.TOTAL_INCREASING,
+        icon="mdi:water-minus",
+        category_keys=(DEVICE_TYPE_PURIFIER,),
+    ),
+    Air352SensorDescription(
+        key="DeviceUsedTime", name="Used Time",
+        native_unit_of_measurement=UnitOfTime.HOURS, state_class=SensorStateClass.TOTAL_INCREASING,
+        icon="mdi:timer-outline",
+        category_keys=(DEVICE_TYPE_PURIFIER,),
+    ),
+    Air352SensorDescription(
+        key="RawWaterTemperature", name="Raw Water Temperature",
+        native_unit_of_measurement=UnitOfTemperature.CELSIUS,
+        device_class=SensorDeviceClass.TEMPERATURE, state_class=SensorStateClass.MEASUREMENT,
+        category_keys=(DEVICE_TYPE_PURIFIER,),
+    ),
+    Air352SensorDescription(
+        key="PureWaterTemperature", name="Pure Water Temperature",
+        native_unit_of_measurement=UnitOfTemperature.CELSIUS,
+        device_class=SensorDeviceClass.TEMPERATURE, state_class=SensorStateClass.MEASUREMENT,
+        category_keys=(DEVICE_TYPE_PURIFIER,),
+    ),
+    Air352SensorDescription(
+        key="WorkState", name="Work State",
+        state_class=SensorStateClass.MEASUREMENT,
+        icon="mdi:state-machine",
+        category_keys=(DEVICE_TYPE_PURIFIER,),
+    ),
+    Air352SensorDescription(
+        key="HeatingStatus", name="Heating Status",
+        state_class=SensorStateClass.MEASUREMENT,
+        icon="mdi:fire",
+        category_keys=(DEVICE_TYPE_PURIFIER,),
+    ),
+    Air352SensorDescription(
+        key="ErrorCode", name="Error Code",
+        state_class=SensorStateClass.MEASUREMENT,
+        icon="mdi:alert-circle-outline",
+        category_keys=(DEVICE_TYPE_PURIFIER,),
+    ),
+    Air352SensorDescription(
+        key="TDS_ALERT", name="TDS Alert",
+        state_class=SensorStateClass.MEASUREMENT,
+        icon="mdi:alert-octagon-outline",
+        category_keys=(DEVICE_TYPE_PURIFIER,),
+    ),
+    Air352SensorDescription(
+        key="WaterDepletionStatus", name="Water Depletion",
+        state_class=SensorStateClass.MEASUREMENT,
+        icon="mdi:water-off",
+        category_keys=(DEVICE_TYPE_PURIFIER,),
     ),
 ]
 

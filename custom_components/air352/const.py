@@ -15,6 +15,6 @@ CONF_IOT_TOKEN = "iot_token"
 CONF_IOT_REFRESH_TOKEN = "iot_refresh_token"
 CONF_IOT_TOKEN_EXPIRE = "iot_token_expire"
 
-DEVICE_TYPE_AIR = "AirPurifier"
+DEVICE_TYPE_AIR = "airpurifier"
 DEVICE_TYPE_HUMIDIFIER = "Humidifier"
 DEVICE_TYPE_PURIFIER = "WaterPurifier"
