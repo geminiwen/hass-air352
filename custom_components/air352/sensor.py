@@ -19,7 +19,14 @@ from homeassistant.core import HomeAssistant
 from homeassistant.helpers.entity_platform import AddEntitiesCallback
 from homeassistant.helpers.update_coordinator import CoordinatorEntity
 
-from .const import DOMAIN, MANUFACTURER, DEVICE_TYPE_AIR, DEVICE_TYPE_PURIFIER, DEVICE_TYPE_HUMIDIFIER
+from .const import (
+    DOMAIN,
+    MANUFACTURER,
+    DEVICE_TYPE_AIR,
+    DEVICE_TYPE_PURIFIER,
+    DEVICE_TYPE_HUMIDIFIER,
+    normalize_device_category,
+)
 from .coordinator import Air352Coordinator
 
 
@@ -128,7 +135,7 @@ async def async_setup_entry(
     coordinator: Air352Coordinator = hass.data[DOMAIN][entry.entry_id]
     entities = []
     for device in coordinator.devices:
-        category = device.get("categoryKey", "")
+        category = normalize_device_category(device.get("categoryKey"))
         iot_id = device["iotId"]
         props = coordinator.data.get(iot_id, {}) if coordinator.data else {}
         for desc in SENSOR_DESCRIPTIONS:

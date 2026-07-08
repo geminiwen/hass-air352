@@ -18,3 +18,17 @@ CONF_IOT_TOKEN_EXPIRE = "iot_token_expire"
 DEVICE_TYPE_AIR = "AirPurifier"
 DEVICE_TYPE_HUMIDIFIER = "Humidifier"
 DEVICE_TYPE_PURIFIER = "WaterPurifier"
+
+CATEGORY_KEY_ALIASES = {
+    DEVICE_TYPE_AIR.lower(): DEVICE_TYPE_AIR,
+    DEVICE_TYPE_HUMIDIFIER.lower(): DEVICE_TYPE_HUMIDIFIER,
+    DEVICE_TYPE_PURIFIER.lower(): DEVICE_TYPE_PURIFIER,
+}
+
+
+def normalize_device_category(category_key: str | None) -> str:
+    """Normalize API categoryKey values to the integration's canonical names."""
+    if not category_key:
+        return ""
+    category = str(category_key)
+    return CATEGORY_KEY_ALIASES.get(category.lower(), category)

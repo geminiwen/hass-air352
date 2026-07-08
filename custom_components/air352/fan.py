@@ -13,7 +13,7 @@ from homeassistant.util.percentage import (
     ranged_value_to_percentage,
 )
 
-from .const import DOMAIN, MANUFACTURER, DEVICE_TYPE_AIR
+from .const import DOMAIN, MANUFACTURER, DEVICE_TYPE_AIR, normalize_device_category
 from .coordinator import Air352Coordinator
 
 SPEED_RANGE = (1, 6)
@@ -39,7 +39,7 @@ async def async_setup_entry(
     coordinator: Air352Coordinator = hass.data[DOMAIN][entry.entry_id]
     entities = []
     for device in coordinator.devices:
-        category = device.get("categoryKey", "")
+        category = normalize_device_category(device.get("categoryKey"))
         if category != DEVICE_TYPE_AIR:
             continue
         iot_id = device["iotId"]
